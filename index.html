@@ -9,20 +9,23 @@
 </head>
 <body>
     <h1>API Calls in JavaScript</h1>
-    <button id="fetch">Fetch Data with fetch()</button>
-    <button id="XHR">Fetch Data with XHR</button>
-    <div>
+    <div class="header">
+        <button id="fetch">Fetch Data with fetch()</button>
+        <button id="XHR">Fetch Data with XHR</button>
+        <button id="delete-button" type="button">Delete Data</button>
+        <label>Which ID would you like to delete?</label>
+        <input type="number" id="deletion-index"/>
         <h4 id="data-header"></h4>
         <p id="data-display"></p>
     </div>
     <form class="data-form" id="data-form">
-        <label>Which ID would you like to replace?</label>
-        <input type="text" id="user-id"/>
-        <label>Insert your title here</label>
-        <input type="text" id="user-title" required/>
-        <label>Insert your body content here</label>
-        <textarea id="user-body" required></textarea>
-        <button id="submit-form" type="submit">Submit POST request</button>
+        <label class="grid-item">Which ID would you like to replace?</label>
+        <input type="text" class="grid-item" id="user-id"/>
+        <label class="grid-item">Insert your title here</label>
+        <input type="text" class="grid-item" id="user-title" required/>
+        <label class="grid-item">Insert your body content here</label>
+        <textarea class="grid-item" id="user-body" required></textarea>
+        <button class="grid-item" id="submit-form" type="button">Submit POST request</button>
     </form>
 </body>
 </html>

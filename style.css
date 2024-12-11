@@ -1,8 +1,46 @@
 body {
     background-color: rgb(88, 88, 88);
+    text-align: center;
+}
+
+.header {
+    display: grid;
+    columns: 1;
+    grid-gap: 10px;
+    margin: 0 40%;
+    padding: 20px;
 }
 
 .data-form {
     display: grid;
-    grid-template-columns: repeat(1, 200px);
+    columns: 1;
+    background-color: rgb(124, 124, 124);
+    grid-gap: 10px;
+    margin: 0 40%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+input, textarea, button {
+    border-radius: 4px;
+    background-color: lightgray;
+}
+
+button:hover {
+    background-color: rgb(202, 255, 202);
+    font-weight: 600;
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    .header, .data-form {
+        margin: 0 10%;
+    }
 }
