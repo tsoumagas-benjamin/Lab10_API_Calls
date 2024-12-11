@@ -88,7 +88,7 @@ function deleteXHRData() {
             dataDisplay.innerText = "XMLHTTPRequest was timed out!";
         });
         // Alert user the post has been deleted
-        alert(`Post ${deletionIndex.value} was updated!`);
+        alert(`Post ${deletionIndex.value} was deleted!`);
     } else {
         alert("Cannot delete post without specified ID!");
     }
