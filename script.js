@@ -25,4 +25,33 @@ async function getData() {
     }
 }
 
+// Retrieve data from an API using XMLHTTPRequests
+function getXHRData() {
+    const target = "https://jsonplaceholder.typicode.com/posts/2";
+    const request = new XMLHttpRequest();
+    request.open("GET", target);
+    request.addEventListener('abort', () => {
+        dataHeader.innerText = "Request Aborted!";
+        dataDisplay.innerText = "XMLHTTPRequest was aborted!";
+    });
+    request.addEventListener('error', () => {
+        dataHeader.innerText = "Error!";
+        dataDisplay.innerText = "XMLHTTPRequest not completed!";
+    });
+    request.addEventListener('timeout', () => {
+        dataHeader.innerText = "Request Timed Out!";
+        dataDisplay.innerText = "XMLHTTPRequest was timed out!";
+    });
+    request.addEventListener('load', () => {
+        let json = JSON.parse(request.responseText);
+        console.log(json.title);
+        console.log(json.body);
+        dataHeader.innerText = json.title;
+        dataDisplay.innerText = json.body;
+    });
+    request.send();
+    
+}
+
 fetchButton.addEventListener('click', getData);
+XHRButton.addEventListener('click', getXHRData);
