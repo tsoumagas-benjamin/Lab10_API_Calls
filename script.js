@@ -4,6 +4,9 @@ const XHRButton = document.getElementById("XHR");
 const dataDisplay = document.getElementById("data-display");
 const dataHeader = document.getElementById("data-header");
 const dataForm = document.getElementById("data-form");
+const userTitle = document.getElementById("user-title");
+const userBody = document.getElementById("user-body");
+const submitForm = document.getElementById("submit-form");
 
 //Function to fetch data using GET requests and display in the data-display div
 async function getData() {
@@ -50,8 +53,31 @@ function getXHRData() {
         dataDisplay.innerText = json.body;
     });
     request.send();
-    
+}
+
+//Function to post data using POST requests and display if we are successful
+async function postData() {
+    const target = "https://jsonplaceholder.typicode.com/posts";
+    try {
+        const response = await fetch(target, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({title: userTitle, body: userBody})
+        });
+        if(!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+        const json = await response.json();
+        alert("Successfully sent data using POST");
+        console.log(json);
+    } catch (error) {
+        console.error(error.message);
+        dataHeader.innerText = "Error!";
+        dataDisplay.innerText = error.message;
+    }
 }
 
 fetchButton.addEventListener('click', getData);
 XHRButton.addEventListener('click', getXHRData);
+submitForm.addEventListener('click', postData);
